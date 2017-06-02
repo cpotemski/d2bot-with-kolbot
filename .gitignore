@@ -1,0 +1,6 @@
+.smbdelete*
+*.log
+.DS_Store
+profile.ini
+cdkeys.ini
+d2bs/kolbot/libs/config/*.*.js
