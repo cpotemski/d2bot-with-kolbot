@@ -11,26 +11,30 @@ function Countess() {
 	Pather.useWaypoint(6);
 	Precast.doPrecast(true);
 
-	if (!Pather.moveToExit([20, 21, 22, 23, 24, 25], true)) {
+	if (!Pather.moveToExit([20, 21, 22, 23, 24, 25], true, Config.Countess.ClearPath)) {
 		throw new Error("Failed to move to Countess");
 	}
 
-	poi = getPresetUnit(me.area, 2, 580);
+	if(Config.Countess.ClearArea) {
+		Attack.clearLevel();
+	} else {
+		poi = getPresetUnit(me.area, 2, 580);
 
-	if (!poi) {
-		throw new Error("Failed to move to Countess (preset not found)");
+		if (!poi) {
+			throw new Error("Failed to move to Countess (preset not found)");
+		}
+
+		switch (poi.roomx * 5 + poi.x) {
+		case 12565:
+			Pather.moveTo(12578, 11043);
+			break;
+		case 12526:
+			Pather.moveTo(12548, 11083);
+			break;
+		}
+
+		Attack.clear(20, 0, getLocaleString(2875)); // The Countess
 	}
-
-	switch (poi.roomx * 5 + poi.x) {
-	case 12565:
-		Pather.moveTo(12578, 11043);
-		break;
-	case 12526:
-		Pather.moveTo(12548, 11083);
-		break;
-	}
-
-	Attack.clear(20, 0, getLocaleString(2875)); // The Countess
 
 	if (Config.OpenChests) {
 		Misc.openChestsInArea();

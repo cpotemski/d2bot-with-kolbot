@@ -13,10 +13,10 @@ function Corpsefire() {
 		throw new Error("Failed to move to Corpsefire");
 	}
 
-	Attack.clear(15, 0, getLocaleString(3319)); // Corpsefire
-
 	if (Config.Corpsefire.ClearDen) {
 		Attack.clearLevel();
+	} else {
+		Attack.clear(15, 0, getLocaleString(3319)); // Corpsefire
 	}
 
 	return true;

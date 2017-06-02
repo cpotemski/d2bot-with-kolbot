@@ -3,4 +3,8 @@
 .DS_Store
 profile.ini
 cdkeys.ini
+
+d2bs/d2bs.ini
+d2bs/kolbot/data/*.json
 d2bs/kolbot/libs/config/*.*.js
+d2bs/kolbot/logs/ScriptErrorLog.txt

@@ -425,7 +425,7 @@ function Diablo() {
 		Pather.useWaypoint(107);
 	}
 
-	if (!Pather.moveTo(7790, 5544)) {
+	if (!Pather.moveTo(7790, 5544, 3, Config.Diablo.clearPathToChaosSanctuary)) {
 		throw new Error("Failed to move to Chaos Sanctuary");
 	}
 
