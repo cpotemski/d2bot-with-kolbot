@@ -12,7 +12,7 @@ function LoadConfig() {
 	 * Set to true if you want to run it, set to false if not.
 	 * If you want to change the order of the scripts, just change the order of their lines by using cut and paste.
 	 */
-	 
+
 	// User addon script. Read the description in libs/bots/UserAddon.js
 	Scripts.UserAddon = true; // !!!YOU MUST SET THIS TO FALSE IF YOU WANT TO RUN BOSS/AREA SCRIPTS!!!
 
@@ -46,6 +46,8 @@ function LoadConfig() {
 	Scripts.BoneAsh = false;
 	Scripts.Countess = false;
 		Config.Countess.KillGhosts = false;
+		Config.Countess.ClearPath = false;
+		Config.Countess.ClearArea = false;
 	Scripts.Andariel = false;
 	Scripts.Cows = false;
 
@@ -86,6 +88,7 @@ function LoadConfig() {
 		Config.Diablo.EntranceTP = "Entrance TP up";
 		Config.Diablo.StarTP = "Star TP up";
 		Config.Diablo.DiabloMsg = "Diablo";
+		Config.Diablo.clearPathToChaosSanctuary = true;
 	Scripts.SealLeader = false; // Clear a safe spot around seals and invite leechers in. Leechers should run SealLeecher script. Don't run with Diablo or FastDiablo.
 
 	// *** act 5 ***
@@ -216,7 +219,7 @@ function LoadConfig() {
 		Config.BaalAssistant.WaitForSafeTP = false; // Set to true to wait for a safe TP message (defined in SafeTPMessage)
 		Config.BaalAssistant.DollQuit = false; // Quit on dolls. (Hardcore players?)
 		Config.BaalAssistant.SoulQuit = false; // Quit on Souls. (Hardcore players?)
-		Config.BaalAssistant.KillBaal = true; // Set to true to kill baal, if you set to false you MUST configure Config.QuitList or Config.BaalAssistant.NextGameMessage or the bot will wait indefinitely. 
+		Config.BaalAssistant.KillBaal = true; // Set to true to kill baal, if you set to false you MUST configure Config.QuitList or Config.BaalAssistant.NextGameMessage or the bot will wait indefinitely.
 		Config.BaalAssistant.HotTPMessage = ["Hot"]; // Configure safe TP messages.
 		Config.BaalAssistant.SafeTPMessage = ["Safe", "Clear"]; // Configure safe TP messages.
 		Config.BaalAssistant.BaalMessage = ["Baal"]; // Configure baal messages, this is a precautionary measure.
@@ -408,13 +411,13 @@ function LoadConfig() {
 	Config.MFSwitch = 0; // MF weapon slot: 0 = slot I, 1 = slot II
 
 	// Fastmod config
-	Config.FCR = 0; // 0 - disable, 1 to 255 - set value of faster cast rate 
-	Config.FHR = 0; // 0 - disable, 1 to 255 - set value of faster hit recovery 
-	Config.FBR = 0; // 0 - disable, 1 to 255 - set value of faster block recovery 
-	Config.IAS = 0; // 0 - disable, 1 to 255 - set value of increased attack speed 
+	Config.FCR = 0; // 0 - disable, 1 to 255 - set value of faster cast rate
+	Config.FHR = 0; // 0 - disable, 1 to 255 - set value of faster hit recovery
+	Config.FBR = 0; // 0 - disable, 1 to 255 - set value of faster block recovery
+	Config.IAS = 0; // 0 - disable, 1 to 255 - set value of increased attack speed
 	Config.PacketCasting = 0; // 0 = disable, 1 = packet teleport, 2 = full packet casting.
 	Config.WaypointMenu = false; // Set to true for Single and private realms
-	
+
 	// Anti-hostile config
 	Config.AntiHostile = false; // Enable anti-hostile
 	Config.HostileAction = 0; // 0 - quit immediately, 1 - quit when hostile player is sighted, 2 - attack hostile
@@ -474,16 +477,16 @@ function LoadConfig() {
 	Config.SummonAnimal = "Grizzly"; // 0 = disabled, 1 or "Spirit Wolf" = summon spirit wolf, 2 or "Dire Wolf" = summon dire wolf, 3 or "Grizzly" = summon grizzly
 	Config.SummonSpirit = "Oak Sage"; // 0 = disabled, 1 / "Oak Sage", 2 / "Heart of Wolverine", 3 / "Spirit of Barbs"
 	Config.SummonVine = "Poison Creeper"; // 0 = disabled, 1 / "Poison Creeper", 2 / "Carrion Vine", 3 / "Solar Creeper"
-	
-	
+
+
 	// AutoBuild System ( See /d2bs/kolbot/libs/config/Builds/README.txt for instructions )
 	Config.AutoBuild.Enabled = false;			//	This will enable or disable the AutoBuild system
-	
-	Config.AutoBuild.Template = "BuildName";	//	The name of the build associated with an existing 
+
+	Config.AutoBuild.Template = "BuildName";	//	The name of the build associated with an existing
 												//	template filename located in libs/config/Builds/
 
 	Config.AutoBuild.Verbose = true;			//	Allows script to print messages in console
-	Config.AutoBuild.DebugMode = true;			//	Debug mode prints a little more information to console and 
+	Config.AutoBuild.DebugMode = true;			//	Debug mode prints a little more information to console and
 												//	logs activity to /logs/AutoBuild.CharacterName._MM_DD_YYYY.log
 												//	It automatically enables Config.AutoBuild.Verbose
 }

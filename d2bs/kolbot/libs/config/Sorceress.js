@@ -12,7 +12,7 @@ function LoadConfig() {
 	 * Set to true if you want to run it, set to false if not.
 	 * If you want to change the order of the scripts, just change the order of their lines by using cut and paste.
 	 */
-	 
+
 	// User addon script. Read the description in libs/bots/UserAddon.js
 	Scripts.UserAddon = true; // !!!YOU MUST SET THIS TO FALSE IF YOU WANT TO RUN BOSS/AREA SCRIPTS!!!
 
@@ -46,6 +46,8 @@ function LoadConfig() {
 	Scripts.BoneAsh = false;
 	Scripts.Countess = false;
 		Config.Countess.KillGhosts = false;
+		Config.Countess.ClearPath = false;
+		Config.Countess.ClearArea = false;
 	Scripts.Andariel = false;
 	Scripts.Cows = false;
 
@@ -86,6 +88,7 @@ function LoadConfig() {
 		Config.Diablo.EntranceTP = "Entrance TP up";
 		Config.Diablo.StarTP = "Star TP up";
 		Config.Diablo.DiabloMsg = "Diablo";
+		Config.Diablo.clearPathToChaosSanctuary = true;
 	Scripts.SealLeader = false; // Clear a safe spot around seals and invite leechers in. Leechers should run SealLeecher script. Don't run with Diablo or FastDiablo.
 
 	// *** act 5 ***
@@ -216,7 +219,7 @@ function LoadConfig() {
 		Config.BaalAssistant.WaitForSafeTP = false; // Set to true to wait for a safe TP message (defined in SafeTPMessage)
 		Config.BaalAssistant.DollQuit = false; // Quit on dolls. (Hardcore players?)
 		Config.BaalAssistant.SoulQuit = false; // Quit on Souls. (Hardcore players?)
-		Config.BaalAssistant.KillBaal = true; // Set to true to kill baal, if you set to false you MUST configure Config.QuitList or Config.BaalAssistant.NextGameMessage or the bot will wait indefinitely. 
+		Config.BaalAssistant.KillBaal = true; // Set to true to kill baal, if you set to false you MUST configure Config.QuitList or Config.BaalAssistant.NextGameMessage or the bot will wait indefinitely.
 		Config.BaalAssistant.HotTPMessage = ["Hot"]; // Configure safe TP messages.
 		Config.BaalAssistant.SafeTPMessage = ["Safe", "Clear"]; // Configure safe TP messages.
 		Config.BaalAssistant.BaalMessage = ["Baal"]; // Configure baal messages, this is a precautionary measure.
@@ -476,16 +479,16 @@ function LoadConfig() {
 	// Class specific config
 	Config.CastStatic = 60; // Cast static until the target is at designated life percent. 100 = disabled.
 	Config.StaticList = []; // List of monster NAMES or CLASSIDS to static. Example: Config.StaticList = ["Andariel", 243];
-	
-	
+
+
 	// AutoBuild System ( See /d2bs/kolbot/libs/config/Builds/README.txt for instructions )
 	Config.AutoBuild.Enabled = false;			//	This will enable or disable the AutoBuild system
-	
-	Config.AutoBuild.Template = "BuildName";	//	The name of the build associated with an existing 
+
+	Config.AutoBuild.Template = "BuildName";	//	The name of the build associated with an existing
 												//	template filename located in libs/config/Builds/
 
 	Config.AutoBuild.Verbose = true;			//	Allows script to print messages in console
-	Config.AutoBuild.DebugMode = true;			//	Debug mode prints a little more information to console and 
+	Config.AutoBuild.DebugMode = true;			//	Debug mode prints a little more information to console and
 												//	logs activity to /logs/AutoBuild.CharacterName._MM_DD_YYYY.log
 												//	It automatically enables Config.AutoBuild.Verbose
 }
